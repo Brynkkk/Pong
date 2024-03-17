@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PongGame.unity
     guid: 784cef0a6a3173f4d87b2dfa2bc86b90
+  - enabled: 1
+    path: Assets/Scenes/Player1 Win.unity
+    guid: 9345641045410dc44abca52ecdf26bfd
+  - enabled: 1
+    path: Assets/Scenes/Player2 Win.unity
+    guid: 6088d6ca675166d4dbf1969ac3a2d426
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

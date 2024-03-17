@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameMusic : MonoBehaviour
+public class EndMusic : MonoBehaviour
 {
-    private static GameMusic gameMusic;
+    private static EndMusic endMusic;
     private AudioSource audioSource;
 
     void Awake()
     {
-        if (gameMusic == null)
+        if (endMusic == null)
         {
-            gameMusic = this;
+            endMusic = this;
             DontDestroyOnLoad(gameObject);
 
             audioSource = GetComponent<AudioSource>();
@@ -35,9 +35,9 @@ public class GameMusic : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "PongGame")
+        if (scene.name == "Player1 Win" || scene.name == "Player2 Win")
         {
-            PlayGameMusic();
+            PlayLobbyMusic();
         }
         else
         {
@@ -45,7 +45,7 @@ public class GameMusic : MonoBehaviour
         }
     }
 
-    void PlayGameMusic()
+    void PlayLobbyMusic()
     {
         if (audioSource != null && !audioSource.isPlaying)
         {

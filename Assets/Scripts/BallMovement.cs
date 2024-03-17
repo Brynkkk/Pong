@@ -8,6 +8,8 @@ public class BallMovement : MonoBehaviour
     public float extraSpeed;
     public float maxSpeed;
 
+    public bool player1Start = true;
+
     private int hitCounter = 0;
     private Rigidbody2D rb;
 
@@ -18,12 +20,26 @@ public class BallMovement : MonoBehaviour
         StartCoroutine(Launch());
     }
 
+    private void ResetBall()
+    {
+        rb.velocity = new Vector2(0, 0);
+        transform.position = new Vector2(0, 0);
+    }
+
     public IEnumerator Launch()
     {
+        ResetBall();
         hitCounter = 0;
         yield return new WaitForSeconds(1);
 
-        MoveBall(new Vector2(-1, 0));
+        if(player1Start == true)
+        {
+            MoveBall(new Vector2(-1, 0));
+        }
+        else
+        {
+            MoveBall(new Vector2(1, 0));
+        }
     }
 
     public void MoveBall(Vector2 direction)
