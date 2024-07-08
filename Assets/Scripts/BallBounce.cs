@@ -33,17 +33,18 @@ public class BallBounce : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Player1" || collision.gameObject.name == "Player2")
+        if (collision.gameObject.name == "Player1" || collision.gameObject.name == "Player2")
         {
             Bounce(collision);
+            collision.gameObject.GetComponent<Animator>().SetTrigger("attack");
         }
-        else if(collision.gameObject.name == "Player2ScoreArea")
+        else if (collision.gameObject.name == "Player2ScoreArea")
         {
             scoreManager.Player1Point();
             ballMovement.player1Start = false;
             StartCoroutine(ballMovement.Launch());
         }
-        else if(collision.gameObject.name == "Player1ScoreArea")
+        else if (collision.gameObject.name == "Player1ScoreArea")
         {
             scoreManager.Player2Point();
             ballMovement.player1Start = true;
